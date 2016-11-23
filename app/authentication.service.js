@@ -22,16 +22,17 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
             }],
         execute: function() {
             User = (function () {
-                function User(email, password) {
+                function User(email, password, username) {
                     this.email = email;
                     this.password = password;
+                    this.username = username;
                 }
                 return User;
             }());
             exports_1("User", User);
             users = [
-                new User('admin@admin.com', 'adm9'),
-                new User('user1@gmail.com', 'a23')
+                new User('admin@admin.com', 'adm9', 'Admin'),
+                new User('user1@gmail.com', 'a23', 'Shan')
             ];
             AuthenticationService = (function () {
                 function AuthenticationService(_router) {
@@ -44,6 +45,7 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
                 AuthenticationService.prototype.login = function (user) {
                     var authenticatedUser = users.find(function (u) { return u.email === user.email; });
                     if (authenticatedUser) {
+                        console.log(authenticatedUser);
                         localStorage.setItem("user", authenticatedUser);
                         this._router.navigate(['Home']);
                         return true;

@@ -24,6 +24,9 @@ System.register(['angular2/core', './authentication.service'], function(exports_
             HeaderComponent = (function () {
                 function HeaderComponent(_service) {
                     this._service = _service;
+                    console.log('**********************');
+                    console.log(localStorage.getItem("user"));
+                    console.log('**********************');
                 }
                 HeaderComponent.prototype.ngOnInit = function () {
                     this._service.checkCredentials();

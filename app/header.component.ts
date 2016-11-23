@@ -10,8 +10,14 @@ import {AuthenticationService} from './authentication.service';
 })
 
 export class HeaderComponent{
+    
     constructor(
-        private _service:AuthenticationService){}
+        private _service:AuthenticationService){
+            console.log('**********************');
+            console.log(localStorage.getItem("user"));
+            console.log('**********************');
+            
+        }
 
     ngOnInit(){
         this._service.checkCredentials();
