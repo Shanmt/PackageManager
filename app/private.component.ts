@@ -4,6 +4,7 @@ import {FooterComponent} from './footer.component';
 import {AuthenticationService} from './authentication.service';
 
 
+
 @Component({
     selector: 'login-form',
     templateUrl: 'app/views/home.component.html',
@@ -12,9 +13,14 @@ import {AuthenticationService} from './authentication.service';
 })
 
 export class PrivateComponent {
-
+    
+    WorkSpace;
+    Controls;
     constructor(
-        private _service:AuthenticationService){}
+        private _service:AuthenticationService){
+            this.WorkSpace = 'Display Screen';
+            this.Controls = 'Controls';
+        }
 
     ngOnInit(){
         this._service.checkCredentials();

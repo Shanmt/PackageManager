@@ -44,9 +44,12 @@ System.register(['angular2/core', 'angular2/router'], function(exports_1, contex
                 };
                 AuthenticationService.prototype.login = function (user) {
                     var authenticatedUser = users.find(function (u) { return u.email === user.email; });
+                    console.log('*******************************');
+                    console.log(authenticatedUser.username);
+                    console.log('*******************************');
                     if (authenticatedUser) {
                         console.log(authenticatedUser);
-                        localStorage.setItem("user", authenticatedUser);
+                        localStorage.setItem("user", JSON.stringify(authenticatedUser));
                         this._router.navigate(['Home']);
                         return true;
                     }

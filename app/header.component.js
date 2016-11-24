@@ -1,4 +1,4 @@
-System.register(['angular2/core', './authentication.service'], function(exports_1, context_1) {
+System.register(['angular2/core', './controls.component', './authentication.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,12 +10,15 @@ System.register(['angular2/core', './authentication.service'], function(exports_
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, authentication_service_1;
+    var core_1, controls_component_1, authentication_service_1;
     var HeaderComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
+            },
+            function (controls_component_1_1) {
+                controls_component_1 = controls_component_1_1;
             },
             function (authentication_service_1_1) {
                 authentication_service_1 = authentication_service_1_1;
@@ -24,9 +27,10 @@ System.register(['angular2/core', './authentication.service'], function(exports_
             HeaderComponent = (function () {
                 function HeaderComponent(_service) {
                     this._service = _service;
-                    console.log('**********************');
-                    console.log(localStorage.getItem("user"));
-                    console.log('**********************');
+                    var userdetails = localStorage.getItem("user");
+                    var user = JSON.parse(userdetails);
+                    console.log(user.username);
+                    this.LoginName = user.username;
                 }
                 HeaderComponent.prototype.ngOnInit = function () {
                     this._service.checkCredentials();
@@ -38,6 +42,7 @@ System.register(['angular2/core', './authentication.service'], function(exports_
                     core_1.Component({
                         selector: 'app-head',
                         templateUrl: 'app/views/header.component.html',
+                        directives: [controls_component_1.ControlsComponent],
                         providers: [authentication_service_1.AuthenticationService]
                     }), 
                     __metadata('design:paramtypes', [authentication_service_1.AuthenticationService])

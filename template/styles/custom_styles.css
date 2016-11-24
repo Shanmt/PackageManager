@@ -1,0 +1,14 @@
+.control-item{
+    padding: 20px 0px 20px 0px;
+    border-bottom: 1px solid #cecece;
+}
+.control-item:hover{
+    background-color: #e8e8e8;
+    color: #000;
+}
+.nopadding{
+    padding: 0px !important;
+}
+.hpanel .nopadding{
+    padding: 0px !important;
+}

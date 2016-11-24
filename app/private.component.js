@@ -30,6 +30,8 @@ System.register(['angular2/core', './header.component', './footer.component', '.
             PrivateComponent = (function () {
                 function PrivateComponent(_service) {
                     this._service = _service;
+                    this.WorkSpace = 'Display Screen';
+                    this.Controls = 'Controls';
                 }
                 PrivateComponent.prototype.ngOnInit = function () {
                     this._service.checkCredentials();
